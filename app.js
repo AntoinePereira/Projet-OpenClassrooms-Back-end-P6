@@ -3,9 +3,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const saucesRoutes = require('./routes/sauces')
+const userRoutes = require('./routes/user');
 
-
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@mongodb@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+mongoose.connect('mongodb+srv://Antoine:XYI3ezRBAxEhMzAP@cluster0.bj53x.mongodb.net/p6-OC?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.use('/api/sauces', saucesRoutes);
-
+app.use('/api/auth', userRoutes);
 
 
 module.exports = app;
