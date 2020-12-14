@@ -2,19 +2,21 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const dotenv = require('dotenv').config()
 const path = require('path');
 
 const saucesRoutes = require('./routes/sauces')
 const userRoutes = require('./routes/user');
 
-mongoose.connect('mongodb+srv://Antoine:XYI3ezRBAxEhMzAP@cluster0.bj53x.mongodb.net/p6-OC?retryWrites=true&w=majority',
+const connectMongoDB = `mongodb+srv://Antoine:${process.env.PASSWORD}@cluster0.bj53x.mongodb.net/p6-OC?retryWrites=true&w=majority`
+mongoose.connect(connectMongoDB,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 const app = express();
-
+console.log(connectMongoDB)
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
