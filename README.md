@@ -4,13 +4,13 @@
 
 Clone this repo
 
-npm install
+`npm install`
 
 create a .env file in the root directory following this model:
 ```
 DB_PASSWORD=******
 DB__USERNAME=*******
 ```
-node server or nodemon server 
+`node server or nodemon server` 
 
 Open http://localhost:4200/ with your web browser
