@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const mongoSanitize = require('express-mongo-sanitize');
 const dotenv = require('dotenv').config()
-
 const path = require('path');
 
 const saucesRoutes = require('./routes/sauces')
